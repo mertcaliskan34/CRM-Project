@@ -1,0 +1,48 @@
+.form-layout {
+    border-radius: 15px;
+    width: 500px;
+}
+
+.message-text {
+    color: white;
+    animation: fadeOut 10s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;    
+    }
+}
+
+/* For mobile phones */
+@media only screen and (max-width: 600px) {
+  body {
+      font-size: 14px;
+  }
+  .container {
+      width: 100%;
+  }
+}
+
+/* For tablets */
+@media only screen and (min-width: 600px) and (max-width: 1024px) {
+  body {
+      font-size: 16px;
+  }
+  .container {
+      width: 90%;
+  }
+}
+
+/* For computers */
+@media only screen and (min-width: 1024px) {
+  body {
+      font-size: 18px;
+  }
+  .container {
+      width: 80%;
+  }
+}
