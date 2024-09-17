@@ -76,7 +76,7 @@ def dashboard(request):
 
     return render(request, 'crmapp/dashboard.html', context=context)
 
-# Create a record
+# - Create a record
 
 @login_required(login_url='my-login')
 def create_record(request):
@@ -99,7 +99,7 @@ def create_record(request):
     
     return render(request, 'crmapp/create-record.html', context=context)
 
-# Update a record
+# - Update a record
 
 @login_required(login_url='my-login')
 def update_record(request, pk):
@@ -124,7 +124,7 @@ def update_record(request, pk):
     
     return render(request, 'crmapp/update-record.html', context=context)
 
-# Read / View a singular record
+# - Read / View a singular record
 
 @login_required(login_url='my-login')
 def singular_record(request, pk):
