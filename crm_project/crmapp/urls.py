@@ -12,6 +12,10 @@ urlpatterns = [
      
      path('user-logout', views.user_logout, name="user-logout"),
      
+     path('about', views.about, name="about"),
+     
+     path('terms-service', views.terms_service, name="terms-service"),
+     
      # CRUD
      
      path('dashboard', views.dashboard, name="dashboard"),
@@ -24,11 +28,3 @@ urlpatterns = [
      
      path('delete-record/<int:pk>', views.delete_record, name="delete-record"),
 ]
-
-
-
-
-
-
-
-
