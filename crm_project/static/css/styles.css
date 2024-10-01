@@ -43,6 +43,27 @@
       font-size: 18px;
   }
   .container {
-      width: 80%;
+      width: 100%;
   }
+  .resp-container {
+      width: 45%;
+  }
+}
+
+.custom-list {
+  margin: 0;
+  padding: 0;
+}
+
+.custom-list-item {
+  background-color: #f8f9fa;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 10px;
+  margin-bottom: 10px;
+  transition: background-color 0.3s;
+}
+
+.custom-list-item:hover {
+  background-color: #e9ecef;
 }
