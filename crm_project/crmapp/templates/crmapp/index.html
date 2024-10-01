@@ -3,7 +3,6 @@
 {% block content %}
 
     <body>
-
     <br>
     <br>
 
@@ -14,11 +13,19 @@
 
         <h5>A stabilized system for tracking the customer records for increased
         productivity and time management.</h5>
-        
         <hr>
-        <br>
         
-        <a class="btn btn-primary" type="button" href="{% url 'register' %}"> Create your account &nbsp; <i class="fa fa-user-plus" aria-hidden="true"></i> </a>
+        {% if not user.is_authenticated %}
+            <a class="btn btn-primary" type="button" href="{% url 'register' %}"> Create your account &nbsp; <i class="fa fa-user-plus" aria-hidden="true"></i> </a>
+        {% endif %}
+
+        {% if user.is_authenticated %}
+            <a href="{% url 'dashboard' %}" class="btn btn-dark"> Return to dashboard &nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i> </a>
+        {% endif %}
+
+        <br>
+        <br>
+        <img src="https://firmanet.com.tr/media/kkukulfg/crm-nedir-1.jpg" alt="Welcome to CRM" style="max-width: 100%; height: auto;">
     
     </div>
 
