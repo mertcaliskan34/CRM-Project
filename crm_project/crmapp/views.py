@@ -16,6 +16,18 @@ def home(request):
     
     return render(request, 'crmapp/index.html')
 
+# - About page
+
+def about(request):
+    
+    return render(request, 'crmapp/about.html')
+
+# - Terms of Service
+
+def terms_service(request):
+    
+    return render(request, 'crmapp/terms-service.html')
+
 # - Register a user
 
 def register(request):
@@ -70,9 +82,11 @@ def my_login(request):
 @login_required(login_url='my-login')
 def dashboard(request):
     
-    my_records = Record.objects.all()
+    my_records = Record.objects.filter(user=request.user)
     
-    context = {'records': my_records}
+    context = {
+        'records': my_records
+    }
 
     return render(request, 'crmapp/dashboard.html', context=context)
 
@@ -89,7 +103,9 @@ def create_record(request):
         
         if form.is_valid():
             
-            form.save()
+            new_record = form.save(commit=False)
+            new_record.user = request.user
+            new_record.save()
             
             messages.success(request, "Your record was created")
             
