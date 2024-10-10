@@ -1,0 +1,43 @@
+{% extends "crmapp/base.html" %}
+
+{% block content %}
+
+    <div class="card" style="max-width: 400px; margin: auto;">
+
+        <div class="card-body" style="font-family: Arial, sans-serif;">
+
+            <i class="fa fa-shopping-bag" aria-hidden="true"></i> &nbsp;
+
+            <strong>
+            
+                {{product.name}}
+    
+            </strong>
+            <hr>
+
+            <p style="font-family: Arial, sans-serif;"> <strong> Price: </strong> {{product.price}} </p>
+            <p style="font-family: Arial, sans-serif;"> <strong> Description: </strong> {{product.description}} </p>
+            <p style="font-family: Arial, sans-serif;"> <strong> Reviews: </strong>
+            {% if product.reviews.all %}
+                <ul>
+                    {% for review in product.reviews.all %}
+                        <li>"{{review.review_text}}" - {{review.customer}}</li>
+                    {% endfor %}
+                </ul>
+            {% else %}
+                <p style="font-family: Arial, sans-serif;"> No reviews available for this product. </p>
+            {% endif %}
+            </p>
+    </div>
+    <br>
+
+    <a href="{% url 'products' %}" class="btn btn-dark"> Return to products &nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i> </a>
+    &nbsp;
+
+    <a href="{% url 'update-product' product.id %}" class="btn btn-info"> Update product &nbsp; <i class="fa fa-pencil" aria-hidden="true"></i> </a>
+    &nbsp;
+
+    <a href="{% url 'delete-product' product.id %}" class="btn btn-danger"> Delete &nbsp; <i class="fa fa-trash" aria-hidden="true"></i> </a>
+    &nbsp;
+
+{% endblock %}

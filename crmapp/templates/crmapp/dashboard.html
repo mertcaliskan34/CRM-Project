@@ -1,0 +1,140 @@
+{% extends "crmapp/base.html" %}
+
+{% block content %}
+
+    <h5> Welcome, {{user}}! 👋 </h5>
+    <hr>
+    
+    <h3 style="text-align: center;"> Customers </h3>
+
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <a class="btn btn-outline-primary btn-md" href="{% url 'create-record' %}">
+            Create a new record &nbsp; <i class="fa fa-plus" aria-hidden="true"></i>
+        </a>
+    
+        <form method="GET" action="{% url 'dashboard' %}" style="flex: 1; text-align: right;">
+            <input type="text" name="customer_query" value="{{ customer_query }}" placeholder="Search customers..." />
+            <button type="submit" class="btn btn-info">Search &nbsp; <i class="fa fa-search" aria-hidden="true"></i></button>
+        </form>
+    </div>
+    <hr>
+
+    <div class="table-responsive">
+
+        <table class="table table-hover table-bordered">
+
+            <thead class="table-dark">
+
+                <tr>
+                    <th scope ="col"> ID </th>
+                    <th scope ="col"> Full name </th>
+                    <th scope ="col"> Email </th>
+                    <th scope ="col"> Phone </th>
+                    <th scope ="col"> Address </th>
+                    <th scope ="col"> City </th>
+                    <th scope ="col"> District </th>
+                    <th scope ="col"> Country </th>
+                    <th scope ="col"> Date created </th>
+                    <th scope="col"> View </th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+            {% if records %}
+
+                {% for record in records %}
+                
+                <tr>
+                    <td> {{record.id}} </td>
+                    <td> {{record.first_name}} {{record.last_name}} </td>
+                    <td> {{record.email}} </td>
+                    <td> {{record.phone}} </td>
+                    <td> {{record.address}} </td>
+                    <td> {{record.city}} </td>
+                    <td> {{record.district}} </td>
+                    <td> {{record.country}} </td>
+                    <td> {{record.creation_date}} </td>
+                    <td> <a href="{% url 'record' record.id %}" class="btn btn-success"> <i class="fa fa-eye" aria-hidden="true"></i> </a> </td>
+                </tr>
+
+                {% endfor %}
+
+            {% endif %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+    <hr>
+
+    <h3 style="text-align: center;"> Orders </h3>
+
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <a class="btn btn-outline-primary btn-md" href="{% url 'create-order' %}">
+            Create a new order &nbsp; <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+        </a>
+    
+        <form method="GET" action="{% url 'dashboard' %}" style="flex: 1; text-align: right;">
+            <input type="text" name="order_query" value="{{ order_query }}" placeholder="Search orders..." />
+            <button type="submit" class="btn btn-info">Search &nbsp; <i class="fa fa-search" aria-hidden="true"></i></button>
+        </form>
+    </div>
+    <hr>
+
+    <div class="table-responsive">
+
+        <table class="table table-hover table-bordered">
+
+            <thead class="table-dark">
+
+                <tr>
+                    <th scope ="col"> Order number </th>
+                    <th scope ="col"> Customer name </th>
+                    <th scope ="col"> Product name </th>
+                    <th scope ="col"> Amount </th>
+                    <th scope ="col"> Status </th>
+                    <th scope ="col"> Date ordered </th>
+                    <th scope="col"> View </th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+            {% if orders %}
+
+                {% for order in orders %}
+                
+                <tr>
+                    <td> {{order.order_number}} </td>
+                    <td> {{order.customer.first_name}} {{order.customer.last_name}} </td>
+                    <td>
+                        {% if order.products.all %}
+                            {% for product in order.products.all %}
+                                {{ product.name }}{% if not forloop.last %}, {% endif %}
+                            {% endfor %}
+                        {% else %}
+                            No Products
+                        {% endif %}
+                    </td>
+                    <td> {{order.amount}} </td>
+                    <td> {{order.status}} </td>
+                    <td> {{order.creation_date}} </td>
+                    <td> <a href="{% url 'order' order.id %}" class="btn btn-success"> <i class="fa fa-eye" aria-hidden="true"></i> </a> </td>
+                </tr>
+
+                {% endfor %}
+
+            {% endif %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+    <hr>
+
+{% endblock %}

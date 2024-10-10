@@ -1,0 +1,79 @@
+{% extends "crmapp/base.html" %}
+
+{% block content %}
+
+    <div class="card">
+
+        <div class="card-body" style="font-family: Arial, sans-serif;">
+
+            <i class="fa fa-user-circle-o" aria-hidden="true"></i> &nbsp;
+
+            <strong>
+            
+                {{record.last_name|upper}}
+                {{record.first_name}}
+    
+            </strong>
+            <hr>
+
+            <p style="font-family: Arial, sans-serif;"> <strong> ID: </strong> {{record.id}} </p>
+            <p style="font-family: Arial, sans-serif;"> <strong> Email: </strong> {{record.email}} </p>
+            <p style="font-family: Arial, sans-serif;"> <strong> Phone number: </strong> {{record.phone}} </p>
+            <p style="font-family: Arial, sans-serif;"> <strong> Address: </strong> {{record.address}} </p>
+            <p style="font-family: Arial, sans-serif;"> <strong> City: </strong> {{record.city}} </p>
+            <p style="font-family: Arial, sans-serif;"> <strong> District: </strong> {{record.district}} </p>
+            <p style="font-family: Arial, sans-serif;"> <strong> Country: </strong> {{record.country}} </p>
+            <p style="font-family: Arial, sans-serif;"> <strong> Date joined: </strong> {{record.creation_date}} </p>
+        
+        </div>
+        
+    </div>
+    <br>
+
+    <h3>Customer Orders</h3>
+    <hr>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Order number</th>
+                <th>Product name</th>
+                <th>Amount</th>
+                <th>Status</th>
+                <th>Date ordered</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in orders %}
+                <tr>
+                    <td>{{ order.order_number }}</td>
+                    <td>
+                        {% for product in order.products.all %}
+                
+                            {{product.name}}
+                
+                        {% endfor %}
+                    </td>
+                    <td>{{ order.amount }}</td>
+                    <td>{{ order.status }}</td>
+                    <td>{{ order.creation_date }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="5">This customer has no orders.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+
+    <a href="{% url 'dashboard' %}" class="btn btn-dark"> Return to dashboard &nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i> </a>
+    &nbsp;
+
+    <a href="{% url 'update-record' record.id %}" class="btn btn-info"> Update record &nbsp; <i class="fa fa-pencil" aria-hidden="true"></i> </a>
+    &nbsp;
+
+    <a href="{% url 'delete-record' record.id %}" class="btn btn-danger"> Delete &nbsp; <i class="fa fa-trash" aria-hidden="true"></i> </a>
+    &nbsp;
+
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "crmapp/base.html" %}
+
+{% block content %}
+
+    <div class="card">
+
+        <div class="card-body" style="font-family: Arial, sans-serif;">
+
+            <i class="fa fa-shopping-bag" aria-hidden="true"></i> &nbsp;
+
+            <strong>
+            
+                {% for product in order.products.all %}
+                
+                    {{product.name}}
+                
+                {% endfor %}
+    
+            </strong>
+            <hr>
+
+            <p style="font-family: Arial, sans-serif;"> <strong> Order number: </strong> {{order.order_number}} </p>
+            <p style="font-family: Arial, sans-serif;"> <strong> Customer: </strong> {{order.customer.first_name}} {{order.customer.last_name}} </p>
+            <p style="font-family: Arial, sans-serif;"> <strong> Amount: </strong> {{order.amount}} </p>
+            <p style="font-family: Arial, sans-serif;"> <strong> Status: </strong> {{order.status}} </p>
+        
+        </div>
+        
+    </div>
+    <br>
+
+    <a href="{% url 'dashboard' %}" class="btn btn-dark"> Return to dashboard &nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i> </a>
+    &nbsp;
+
+    <a href="{% url 'update-order' order.id %}" class="btn btn-info"> Update order &nbsp; <i class="fa fa-pencil" aria-hidden="true"></i> </a>
+    &nbsp;
+
+    <a href="{% url 'delete-order' order.id %}" class="btn btn-danger"> Delete &nbsp; <i class="fa fa-trash" aria-hidden="true"></i> </a>
+    &nbsp;
+
+{% endblock %}

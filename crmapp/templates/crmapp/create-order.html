@@ -1,0 +1,44 @@
+{% extends "crmapp/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <body>
+        <div class="container resp-container bg-primary-subtle shadow-md p-5 form-layout">
+        
+            <h3> Create an order </h3>
+            <br>
+            <h6> Select a customer and fill in the required details for your order. </h6>
+            <hr>
+            <br>
+
+            <form method="POST" autocomplete="off">
+                
+                {% csrf_token %}
+
+                {{form.order_number|as_crispy_field}}
+                <br>
+                {{form.customer|as_crispy_field}}
+                <br>
+                {{form.products|as_crispy_field}}
+                <br>
+                {{form.amount|as_crispy_field}}
+                <br>
+                {{form.status|as_crispy_field}}
+                <br>
+
+                <div style="display: flex; justify-content: space-between;">
+                    <button type="submit" class="btn btn-primary">
+                        Create order &nbsp; <i class="fa fa-check" aria-hidden="true"></i>
+                    </button>
+                    
+                    <a href="{% url 'dashboard' %}" class="btn btn-dark">
+                        Return to dashboard &nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </body>
+
+{% endblock %}
