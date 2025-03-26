@@ -64,16 +64,3 @@ This project is a Customer Relationship Management (CRM) system built using the 
 7.  **Access the application:**
 
     Open your web browser and navigate to `http://127.0.0.1:8000/`.
-
-## Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1.  Fork the repository.
-2.  Create a new branch for your feature or bug fix.
-3.  Implement your changes.
-4.  Submit a pull request.
-
-## License
-
-[Specify the license under which the project is released, e.g., MIT License]
