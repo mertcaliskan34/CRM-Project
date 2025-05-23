@@ -14,7 +14,7 @@ This project is a Customer Relationship Management (CRM) system built using the 
 *   **Django:** A high-level Python web framework for rapid development.
 *   **Python:** The primary programming language.
 *   **HTML/CSS/JavaScript:** For front-end development and user interface design.
-*   **SQLite (or other database):** For storing application data.
+*   **SQLite3:** For storing application data.
 
 ## Setup Instructions
 
