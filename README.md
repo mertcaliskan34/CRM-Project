@@ -1,9 +1,5 @@
 # CRM Project
 
-This is the project that I've completed during my internship at Haroon Technology.
-
-## Overview
-
 This project is a Customer Relationship Management (CRM) system built using the Django framework. It provides tools for managing customer interactions, tracking sales leads, and organizing customer data.
 
 ## Features
