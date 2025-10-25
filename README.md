@@ -1,4 +1,4 @@
-# CRM Project
+# CRM Project test
 
 This project is a Customer Relationship Management (CRM) system built using the Django framework. It provides tools for managing customer interactions, tracking sales leads, and organizing customer data.
 
