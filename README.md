@@ -12,12 +12,9 @@ A comprehensive **Customer Relationship Management (CRM)** system built with Dja
 - [Technology Stack](#technology-stack)
 - [Architecture](#architecture)
 - [Installation](#installation)
-- [Usage](#usage)
-- [API Documentation](#api-documentation)
 - [Database Schema](#database-schema)
 - [Security Features](#security-features)
 - [Performance](#performance)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Features
