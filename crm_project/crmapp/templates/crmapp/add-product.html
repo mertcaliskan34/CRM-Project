@@ -1,0 +1,40 @@
+{% extends "crmapp/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <body>
+        <div class="container resp-container bg-primary-subtle shadow-md p-5 form-layout">
+        
+            <h3> Add a product </h3>
+            <br>
+            <h6> Fill in the details to add your product. </h6>
+            <hr>
+            <br>
+
+            <form method="POST" autocomplete="off">
+                
+                {% csrf_token %}
+
+                {{form.name|as_crispy_field}}
+                <br>
+                {{form.price|as_crispy_field}}
+                <br>
+                {{form.description|as_crispy_field}}
+                <br>
+
+                <div style="display: flex; justify-content: space-between;">
+                    <button type="submit" class="btn btn-primary">
+                        Add product &nbsp; <i class="fa fa-check" aria-hidden="true"></i>
+                    </button>
+                    
+                    <a href="{% url 'products' %}" class="btn btn-dark">
+                        Return to products &nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </body>
+
+{% endblock %}

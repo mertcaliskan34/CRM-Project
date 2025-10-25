@@ -1,0 +1,50 @@
+{% extends "crmapp/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <body>
+        <div class="container resp-container bg-primary-subtle shadow-md p-5 form-layout">
+        
+            <h3> Create a record </h3>
+            <br>
+            <h6> Start adding in the required details for your record. </h6>
+            <hr>
+            <br>
+
+            <form method="POST" autocomplete="off">
+                
+                {% csrf_token %}
+
+                {{form.first_name|as_crispy_field}}
+                <br>
+                {{form.last_name|as_crispy_field}}
+                <br>
+                {{form.email|as_crispy_field}}
+                <br>
+                {{form.phone|as_crispy_field}}
+                <br>
+                {{form.address|as_crispy_field}}
+                <br>
+                {{form.city|as_crispy_field}}
+                <br>
+                {{form.district|as_crispy_field}}
+                <br>
+                {{form.country|as_crispy_field}}
+                <br>
+
+                <div style="display: flex; justify-content: space-between;">
+                    <button type="submit" class="btn btn-primary">
+                        Create record &nbsp; <i class="fa fa-check" aria-hidden="true"></i>
+                    </button>
+                    
+                    <a href="{% url 'dashboard' %}" class="btn btn-dark">
+                        Return to dashboard &nbsp; <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </body>
+
+{% endblock %}

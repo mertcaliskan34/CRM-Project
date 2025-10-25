@@ -1,0 +1,39 @@
+{% extends "crmapp/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <body>
+        <div class="container resp-container bg-primary-subtle shadow-md p-5 form-layout">
+        
+            <h3> Update order </h3>
+            <br>
+            <h6> Update your order down below. </h6>
+            <hr>
+            <br>
+
+            <form method="POST" autocomplete="off">
+                
+                {% csrf_token %}
+
+                {{form.order_number|as_crispy_field}}
+                <br>
+                {{form.customer|as_crispy_field}}
+                <br>
+                {{form.products|as_crispy_field}}
+                <br>
+                {{form.amount|as_crispy_field}}
+                <br>
+                {{form.status|as_crispy_field}}
+                <br>
+
+                <button type="submit" class="btn btn-primary w-100 btn-block p-2">
+                    Save &nbsp; <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                </button>
+
+            </form>
+        </div>
+    </body>
+
+{% endblock %}
