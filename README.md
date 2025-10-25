@@ -144,12 +144,12 @@ pip install crispy-bootstrap4
 python manage.py migrate
 
 # Create superuser account
-    python manage.py createsuperuser
+python manage.py createsuperuser
 ```
 
 ### **Step 5: Run Development Server**
 ```bash
-    python manage.py runserver
+python manage.py runserver
 ```
 
 ### **Step 6: Access Application**
