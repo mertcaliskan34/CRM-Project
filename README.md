@@ -112,7 +112,7 @@ CRM_Project/
 - Git (for cloning the repository)
 
 ### **Step 1: Clone the Repository**
-    ```bash
+```bash
 git clone https://github.com/mertcaliskan34/CRM-Project.git
 cd CRM-Project
 ```
@@ -123,18 +123,20 @@ cd CRM-Project
 python -m venv myvenv
 
 # Activate virtual environment
+
 # On Windows:
 myvenv\Scripts\activate
+
 # On macOS/Linux:
 source myvenv/bin/activate
 ```
 
 ### **Step 3: Install Dependencies**
-    ```bash
+```bash
 pip install django==5.1.6
 pip install django-crispy-forms
 pip install crispy-bootstrap4
-    ```
+```
 
 ### **Step 4: Database Setup**
 ```bash
@@ -143,12 +145,12 @@ python manage.py migrate
 
 # Create superuser account
     python manage.py createsuperuser
-    ```
+```
 
 ### **Step 5: Run Development Server**
-    ```bash
+```bash
     python manage.py runserver
-    ```
+```
 
 ### **Step 6: Access Application**
 Open your browser and navigate to: `http://127.0.0.1:8000/`
