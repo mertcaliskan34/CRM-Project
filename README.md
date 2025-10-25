@@ -3,7 +3,6 @@
 [![Django](https://img.shields.io/badge/Django-5.1.6-green.svg)](https://djangoproject.com/)
 [![Python](https://img.shields.io/badge/Python-3.10+-blue.svg)](https://python.org/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Status](https://img.shields.io/badge/Status-Production%20Ready-brightgreen.svg)]()
 
 A comprehensive **Customer Relationship Management (CRM)** system built with Django, designed for businesses to manage customer interactions, track sales leads, process orders, and maintain product catalogs. This enterprise-grade application features secure user authentication, responsive design, and scalable architecture.
 
