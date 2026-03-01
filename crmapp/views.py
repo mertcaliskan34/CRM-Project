@@ -294,9 +294,10 @@ def create_order(request):
         if form.is_valid():
             
             order = form.save(commit=False)
-            order.user = request.user 
+            order.user = request.user
             order.save()
-            
+            form.save_m2m()  # ManyToMany (products) kaydedilir
+
             messages.success(request, "Your order was created")
             
             return redirect("dashboard")

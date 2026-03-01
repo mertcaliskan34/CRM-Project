@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'crmapp',
     
     'crispy_forms',
+    'crispy_bootstrap4',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

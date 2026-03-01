@@ -1,4 +1,5 @@
 {% extends "crmapp/base.html" %}
+{% load static %}
 
 {% block content %}
 
@@ -25,7 +26,7 @@
 
         <br>
         <br>
-        <img src="https://firmanet.com.tr/media/kkukulfg/crm-nedir-1.jpg" alt="Welcome to CRM" style="max-width: 100%; height: auto;">
+        <img src="{% static 'assets/home-crm-image.png' %}" alt="Welcome to CRM" style="max-width: 100%; height: auto;">
     
     </div>
 
